@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("quiz/")
-@CrossOrigin(origins = "https://frontend-personality-quiz.herokuapp.com/quiz")
+@CrossOrigin(origins = "https://frontend-personality-quiz.herokuapp.com")
 public class QuizController {
 
     @Autowired
