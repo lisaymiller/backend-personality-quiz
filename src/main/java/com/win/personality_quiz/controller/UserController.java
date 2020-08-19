@@ -28,7 +28,7 @@ public class UserController {
 
         List<User> userList = new ArrayList<>();
         userList.add(new User("test"));
-        return userList;
+        return userRepo.findAll();
 
     }
 
