@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("user/")
+@RequestMapping("/user")
 @CrossOrigin(origins = "https://frontend-personality-quiz.herokuapp.com")
 public class UserController {
 
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("names")
+    @GetMapping("/names")
     public Collection<User> getUserNames() {
 
         return userRepo.findAll();
     }
 
-    @PostMapping("names")
+    @PostMapping("/names")
     public void getUser(@RequestBody User user) {
         userRepo.save(user);
 
