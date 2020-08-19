@@ -1,6 +1,6 @@
 package com.win.personality_quiz.controller;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.win.personality_quiz.model.User;
 import com.win.personality_quiz.repository.UserRepo;
@@ -22,7 +22,7 @@ public class UserController {
     private UserRepo userRepo;
 
     @GetMapping("/names")
-    public Collection<User> getUserNames() {
+    public List<User> getUserNames() {
 
         return userRepo.findAll();
     }
