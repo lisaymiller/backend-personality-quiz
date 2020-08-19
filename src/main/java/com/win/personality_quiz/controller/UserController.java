@@ -28,7 +28,12 @@ public class UserController {
 
         List<User> userList = new ArrayList<>();
         userList.add(new User("test"));
-        return userRepo.findAll();
+        try {
+            return userRepo.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return userList;
+        }
 
     }
 
