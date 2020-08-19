@@ -4,34 +4,17 @@ This app is the back end portion to a full-stack application, which can be found
 
 ## How to run locally
 
-_You cannot run this locally as is, much change application properties to something like below to utilize a local h2 database_
+_You cannot run this locally as is, must change application properties to something like below to utilize a local h2 database_
 
-`spring.datasource.driver-class-name=org.h2.Driver`
-`spring.datasource.url= jdbc:h2:mem:testdb`
-`spring.h2.console.enabled=true`
-`spring.datasource.platform=h2`
-`spring.jpa.hibernate.ddl-auto = update`
+-`spring.datasource.driver-class-name=org.h2.Driver` -`spring.datasource.url= jdbc:h2:mem:testdb` -`spring.h2.console.enabled=true` -`spring.datasource.platform=h2` -`spring.jpa.hibernate.ddl-auto = update`
 
 ## How I converted my H2 Database and Deployed to Heroku
 
-- First, I needed to utilize a Postgres database so that integration with Heroku is easy, so I added the dependency to my pom.xml
-  `<dependency>`
-  `<groupId>org.postgresql</groupId>`
-  `<artifactId>postgresql</artifactId>`
-  `<scope>runtime</scope> </dependency>`
+- First, I needed to utilize a Postgres database so that integration with Heroku is easy, so I added the dependency to my pom.xml -`<dependency>` -`<groupId>org.postgresql</groupId>` -`<artifactId>postgresql</artifactId>` -`<scope>runtime</scope> </dependency>`
 
 - Second, I converted my application properties to use Postgres and variables which we will configure later (looks something like below, can look at my application properties in github if youre confused on what each thing is doing)
 
-`spring.datasource.url=${SPRING_DATA_URL}`
-`spring.datasource.username=${SPRING_DATA_USERNAME}`
-`spring.datasource.password=${SPRING_DATA_PASSWORD}`
-`spring.jpa.show-sql=false`
-`spring.jpa.generate-ddl=true`
-`spring.jpa.hibernate.ddl-auto=${SPRING_JPA_HIBERNATE_DDL-AUTO}`
-`server.port=${PORT:8080}`
-`spring.datasource.platform=${SPRING_JPA_DATABASE-PLATFORM}`
-`spring.datasource.driver-class-name=org.postgresql.Driver`
-`spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect`
+-`spring.datasource.url=${SPRING_DATA_URL}` -`spring.datasource.username=${SPRING_DATA_USERNAME}` -`spring.datasource.password=${SPRING_DATA_PASSWORD}` -`spring.jpa.show-sql=false` -`spring.jpa.generate-ddl=true` -`spring.jpa.hibernate.ddl-auto=${SPRING_JPA_HIBERNATE_DDL-AUTO}` -`server.port=${PORT:8080}` -`spring.datasource.platform=${SPRING_JPA_DATABASE-PLATFORM}` -`spring.datasource.driver-class-name=org.postgresql.Driver` -`spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect`
 
 - Third, I actually made the Heroku app, chose GitHub as deployment, and linked the appropriate repo
 
