@@ -24,9 +24,9 @@ public class UserController {
     private UserRepo userRepo;
 
     @GetMapping("/names")
-    public Collection<User> getUserNames() {
-
-        return userRepo.findAll();
+    public void getUserNames() {
+        System.out.println("sup");
+        // return userRepo.findAll();
     }
 
     @PostMapping("/names")
