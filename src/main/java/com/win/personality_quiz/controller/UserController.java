@@ -25,12 +25,11 @@ public class UserController {
 
     @GetMapping("/names")
     public Collection<User> getUserNames() {
-        if (userRepo.findAll().isEmpty()) {
-            List<User> userList = new ArrayList<>();
-            return userList;
-        } else {
-            return userRepo.findAll();
-        }
+
+        List<User> userList = new ArrayList<>();
+        userList.add(new User("test"));
+        return userList;
+
     }
 
     @GetMapping("/test")
