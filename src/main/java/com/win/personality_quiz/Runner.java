@@ -1,7 +1,9 @@
 package com.win.personality_quiz;
 
 import com.win.personality_quiz.model.Quiz;
+import com.win.personality_quiz.model.User;
 import com.win.personality_quiz.repository.QuizRepo;
+import com.win.personality_quiz.repository.UserRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,8 +15,12 @@ public class Runner implements CommandLineRunner {
     @Autowired
     private QuizRepo quizRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+
     @Override
     public void run(String... args) throws Exception {
+        this.userRepo.save(new User("username"));
         if (quizRepo.findAll().isEmpty()) {
             this.quizRepo.save(new Quiz("What Is Your Preferred Halloween Costume?", "A. None, I'm lame", "B. Skeleton",
                     "C. George of the Jungle", "D. A group costume with friends", "E. Cow"));
