@@ -1,5 +1,7 @@
 package com.win.personality_quiz.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.win.personality_quiz.model.User;
@@ -22,9 +24,13 @@ public class UserController {
     private UserRepo userRepo;
 
     @GetMapping("/names")
-    public List<User> getUserNames() {
-
-        return userRepo.findAll();
+    public Collection<User> getUserNames() {
+        if (userRepo.findAll().isEmpty()) {
+            List<User> userList = new ArrayList<>();
+            return userList;
+        } else {
+            return userRepo.findAll();
+        }
     }
 
     @PostMapping("/names")
