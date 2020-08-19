@@ -1,8 +1,6 @@
 package com.win.personality_quiz.controller;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import com.win.personality_quiz.model.User;
 import com.win.personality_quiz.repository.UserRepo;
@@ -26,14 +24,7 @@ public class UserController {
     @GetMapping("/names")
     public Collection<User> getUserNames() {
 
-        List<User> userList = new ArrayList<>();
-        userList.add(new User("test"));
-        try {
-            return userRepo.findAll();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return userList;
-        }
+        return userRepo.findAll();
 
     }
 
