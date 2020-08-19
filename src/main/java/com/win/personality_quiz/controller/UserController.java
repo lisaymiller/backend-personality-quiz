@@ -33,6 +33,11 @@ public class UserController {
         }
     }
 
+    @GetMapping("/test")
+    public String getUserNamesTest() {
+        return "sup";
+    }
+
     @PostMapping("/names")
     public void getUser(@RequestBody User user) {
         userRepo.save(user);
