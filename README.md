@@ -1,4 +1,4 @@
-# Welcome to my backend!
+# Welcome to the backend!
 
 This app is the back end portion to a full-stack application, which can be found [here](https://frontend-personality-quiz.herokuapp.com/)
 
